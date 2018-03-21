@@ -37,12 +37,10 @@ class CriteriaForm(forms.ModelForm):
 
 
 class Story(models.Model):
-    idi = models.CharField(max_length=100)
     story_Name = models.CharField(max_length=100)
     as_Data = models.CharField(max_length=100)
     iWant = models.CharField(max_length=100)
     sothat = models.CharField(max_length=100)
-    tags = models.ListField()
     testcases = models.ArrayModelField(
         model_container=TestCase,
         model_form_class=TestCaseForm
@@ -51,6 +49,7 @@ class Story(models.Model):
         model_container=Criteria,
         model_form_class=CriteriaForm
     )
+    objects = models.DjongoManager()
 
 
 # class TestCase(models.Model):
